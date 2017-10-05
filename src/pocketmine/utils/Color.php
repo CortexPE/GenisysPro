@@ -199,6 +199,10 @@ class Color {
 	public static function fromARGB(int $code): Color{
 		return new Color(($code >> 16) & 0xff, ($code >> 8) & 0xff, $code & 0xff, ($code >> 24) & 0xff);
 	}
+	
+	public static function fromABGR(int $code){
+		return new Color($code & 0xff, ($code >> 8) & 0xff, ($code >> 16) & 0xff, ($code >> 24) & 0xff);
+	}
 
 	public function toARGB(): int{
 		return ($this->alpha << 24) | ($this->red << 16) | ($this->green << 8) | $this->blue;
